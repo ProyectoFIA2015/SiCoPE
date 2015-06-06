@@ -1,0 +1,37 @@
+{% extends '::base.html.twig' %}
+
+{% block cabecera %}USUARIO{% endblock %}
+{% block cuerpo %}
+    <form>
+        <input id="filterTable-input" data-type="search">
+    </form>
+    
+    <a href="{{ path('usuario_new') }}" class="ui-btn ui-btn-inline ui-icon-plus ui-btn-icon-left">Nuevo Usuario</a>
+   
+    <table data-role="table" id="movie-table" data-filter="true" data-input="#filterTable-input" class="ui-responsive table-stripe">
+        <thead>
+            <tr>
+                <th data-priority="1">ID</th>
+                <th data-priority="persist">Nombre</th>
+                <th data-priority="2">DUE</th>
+                <th data-priority="3">Carrera</th>
+                <th data-priority="4">Miembro</th>
+                <th data-priority="5"></th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('usuario_show', { 'id': entity.idusuario }) }}">{{ entity.idusuario }}</a></td>
+                <td>{{ entity.nombre }}</td>
+                <td>{{ entity.due }}</td>
+                <td>{{ entity.carrera }}</td>
+                <td>{{ entity.miembro }}</td>
+                <td>
+                    <span><a href="{{ path('usuario_edit', { 'id': entity.idusuario }) }}" class="ui-btn ui-icon-edit ui-btn-icon-notext ui-corner-all">edit</a></span>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

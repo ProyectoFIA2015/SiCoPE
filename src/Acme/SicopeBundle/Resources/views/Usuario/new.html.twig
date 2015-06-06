@@ -1,0 +1,31 @@
+{% extends '::base.html.twig' %}
+
+{% block cabecera %}USUARIO{% endblock %}
+{% block cuerpo %}
+    
+
+    <div class="ui-field-contain">
+        {{ form_start(form) }}
+            {{ form_label(form.nombre) }}
+            {{ form_errors(form.nombre) }}
+            {{ form_widget(form.nombre,{'attr':{'placeholder':'Nombre'}}) }}
+        
+            {{ form_label(form.due,'DUE') }}
+            {{ form_errors(form.due) }}
+            {{ form_widget(form.due,{'attr':{'placeholder':'DUE'}}) }}
+        
+            {{ form_label(form.carrera) }}
+            {{ form_errors(form.carrera) }}
+            {{ form_widget(form.carrera,{'attr':{'placeholder':'Carrera'}}) }}
+        
+            {{ form_label(form.miembro,'Miembro de ASEISI') }}
+            {{ form_errors(form.miembro) }}
+            {{ form_widget(form.miembro,{'attr':{'data-role':'controlgroup','data-type':'horizontal'}}) }}
+            <br><br>
+        {{ form_end(form) }}
+    </div>
+
+    <ul data-role="listview" data-inset="true">
+        <li data-icon="arrow-r"><a href="{{ path('usuario') }}">Regresar a la Lista</a></li>
+    </ul>
+{% endblock %}

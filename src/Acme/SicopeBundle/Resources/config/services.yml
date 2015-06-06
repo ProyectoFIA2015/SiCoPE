@@ -1,0 +1,4 @@
+services:
+#    acme_sicope.example:
+#        class: Acme\SicopeBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]

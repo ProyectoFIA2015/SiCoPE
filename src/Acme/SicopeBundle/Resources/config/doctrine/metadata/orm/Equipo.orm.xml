@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="Equipo" table="Equipo">
+    <unique-constraints>
+      <unique-constraint name="codigo_UNIQUE" columns="codigo"/>
+    </unique-constraints>
+    <id name="idequipo" type="integer" column="idEquipo">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="codigo" type="string" column="codigo" length="45" nullable="true"/>
+    <field name="nombre" type="string" column="nombre" length="45" nullable="true"/>
+    <field name="marca" type="string" column="marca" length="45" nullable="true"/>
+  </entity>
+</doctrine-mapping>

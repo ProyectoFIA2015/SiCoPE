@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="Prestamo" table="Prestamo">
+    <indexes>
+      <index name="fk_Presta_idx" columns="idPresta"/>
+      <index name="fk_Recibe_idx" columns="idRecibe"/>
+      <index name="fk_Equipo_idx" columns="idEquipo"/>
+    </indexes>
+    <id name="idprestamo" type="integer" column="idPrestamo">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="fechaprestamo" type="date" column="fechaPrestamo" nullable="true"/>
+    <field name="fechadevolucion" type="date" column="fechaDevolucion" nullable="true"/>
+    <field name="descripcion" type="text" column="descripcion" length="65535" nullable="true"/>
+    <many-to-one field="idrecibe" target-entity="Usuario">
+      <join-columns>
+        <join-column name="idRecibe" referenced-column-name="idUsuario"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="idpresta" target-entity="Usuario">
+      <join-columns>
+        <join-column name="idPresta" referenced-column-name="idUsuario"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="idequipo" target-entity="Equipo">
+      <join-columns>
+        <join-column name="idEquipo" referenced-column-name="idEquipo"/>
+      </join-columns>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>

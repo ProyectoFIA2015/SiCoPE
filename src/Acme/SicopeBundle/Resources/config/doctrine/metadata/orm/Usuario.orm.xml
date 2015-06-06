@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="Usuario" table="Usuario">
+    <unique-constraints>
+      <unique-constraint name="due_UNIQUE" columns="due"/>
+    </unique-constraints>
+    <id name="idusuario" type="integer" column="idUsuario">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="nombre" type="string" column="nombre" length="45" nullable="true"/>
+    <field name="due" type="string" column="due" length="45" nullable="true"/>
+    <field name="carrera" type="string" column="carrera" length="45" nullable="true"/>
+    <field name="miembro" type="string" column="miembro" length="45" nullable="true"/>
+  </entity>
+</doctrine-mapping>

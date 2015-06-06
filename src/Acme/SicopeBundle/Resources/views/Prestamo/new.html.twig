@@ -1,0 +1,25 @@
+{% extends '::base.html.twig' %}
+
+{% block cabecera %}PRESTAMO{% endblock %}
+{% block cuerpo %}
+    
+
+    <div class="ui-field-contain">
+        {{ form_start(form) }}
+            {{ form_label(form.fechaprestamo,'Fecha de Prestamo') }}
+            {{ form_errors(form.fechaprestamo) }}
+            {{ form_widget(form.fechaprestamo,{'attr':{'data-role':'date'}}) }}
+            
+            {{ form_label(form.fechadevolucion,'Fecha de Devolucion') }}
+            {{ form_errors(form.fechadevolucion) }}
+            {{ form_widget(form.fechadevolucion,{'attr':{'data-role':'date'}}) }}
+            
+            
+            {{ form_rest(form) }}
+        {{ form_end(form) }}
+    </div>
+
+    <ul data-role="listview" data-inset="true">
+        <li data-icon="arrow-r"><a href="{{ path('prestamo') }}">Regresar a la Lista</a></li>
+    </ul>
+{% endblock %}

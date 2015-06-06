@@ -1,0 +1,15 @@
+{% extends '::base.html.twig' %}
+
+{% block cabecera %}EQUIPO{% endblock %}
+{% block cuerpo %}
+      
+    <div class="ui-field-contain">
+        {{ form(edit_form) }}
+        {{ form(delete_form) }}
+    </div>
+        
+           
+    <ul data-role="listview" data-inset="true">
+        <li data-icon="arrow-r"><a href="{{ path('equipo') }}">Regresar a la Lista</a></li>
+    </ul>
+{% endblock %}

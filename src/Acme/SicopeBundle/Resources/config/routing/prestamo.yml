@@ -1,0 +1,30 @@
+prestamo:
+    path:     /
+    defaults: { _controller: "AcmeSicopeBundle:Prestamo:index" }
+
+prestamo_show:
+    path:     /{id}/show
+    defaults: { _controller: "AcmeSicopeBundle:Prestamo:show" }
+
+prestamo_new:
+    path:     /new
+    defaults: { _controller: "AcmeSicopeBundle:Prestamo:new" }
+
+prestamo_create:
+    path:     /create
+    defaults: { _controller: "AcmeSicopeBundle:Prestamo:create" }
+    requirements: { _method: post }
+
+prestamo_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "AcmeSicopeBundle:Prestamo:edit" }
+
+prestamo_update:
+    path:     /{id}/update
+    defaults: { _controller: "AcmeSicopeBundle:Prestamo:update" }
+    requirements: { _method: post|put }
+
+prestamo_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "AcmeSicopeBundle:Prestamo:delete" }
+    requirements: { _method: post|delete }

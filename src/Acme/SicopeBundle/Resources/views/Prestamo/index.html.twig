@@ -1,0 +1,39 @@
+{% extends '::base.html.twig' %}
+
+{% block cabecera %}PRESTAMO{% endblock %}
+{% block cuerpo %}
+    <form>
+        <input id="filterTable-input" data-type="search">
+    </form>
+    
+    <a href="{{ path('prestamo_new') }}" class="ui-btn ui-btn-inline ui-icon-plus ui-btn-icon-left">Nuevo Prestamo</a>
+   
+    <table data-role="table" id="movie-table" data-filter="true" data-input="#filterTable-input" class="ui-responsive table-stripe">
+        <thead>
+            <tr>
+                <th data-priority="1">ID</th>
+                <th data-priority="persist">Fecha Prestamo</th>
+                <th data-priority="2">Fecha Devolucion</th>
+                <th data-priority="3">Descripcion</th>
+                <th data-priority="4"></th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('prestamo_show', { 'id': entity.idprestamo}) }}">{{ entity.idprestamo }}</a></td>
+                <td>{% if entity.fechaprestamo %}{{ entity.fechaprestamo|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if entity.fechadevolucion %}{{ entity.fechadevolucion|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ entity.descripcion }}</td>
+                <td>
+                    <span><a href="{{ path('prestamo_show', { 'id': entity.idprestamo }) }}" class="ui-btn ui-icon-eye ui-btn-icon-notext ui-corner-all">show</a></span>
+                    <span><a href="{{ path('prestamo_edit', { 'id': entity.idprestamo }) }}" class="ui-btn ui-icon-edit ui-btn-icon-notext ui-corner-all">edit</a></span>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
+                
+                
+               

@@ -1,0 +1,15 @@
+acme_sicope_prestamo:
+    resource: "@AcmeSicopeBundle/Resources/config/routing/prestamo.yml"
+    prefix:   /prestamo
+
+acme_sicope_usuario:
+    resource: "@AcmeSicopeBundle/Resources/config/routing/usuario.yml"
+    prefix:   /usuario
+
+acme_sicope_equipo:
+    resource: "@AcmeSicopeBundle/Resources/config/routing/equipo.yml"
+    prefix:   /equipo
+
+acme_sicope_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: AcmeSicopeBundle:Default:index }
